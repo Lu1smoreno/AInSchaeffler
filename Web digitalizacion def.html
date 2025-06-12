@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitization and AI - Recommended Courses</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Calibri, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-family: Calibri, sans-serif;
+            font-size: 48px;
+            color: #90EE90;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: #90EE90;
+            box-shadow: 0 0 15px rgba(144, 238, 144, 0.3);
+        }
+
+        .level-section {
+            margin-bottom: 50px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .level-title {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #90EE90;
+            display: inline-block;
+        }
+
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .category-title {
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+            cursor: pointer;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .course-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .course-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+
+        .course-provider {
+            font-size: 12px;
+            color: #90EE90;
+            font-weight: bold;
+            background: rgba(144, 238, 144, 0.1);
+            padding: 4px 8px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .free-badge {
+            background: #4CAF50;
+            color: white;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 10px;
+            float: right;
+            margin-top: -5px;
+        }
+
+        .stats {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(144, 238, 144, 0.1);
+            border-radius: 15px;
+        }
+
+        .stat-item {
+            display: inline-block;
+            margin: 0 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            margin: 0 10px;
+        }
+
+        .tab-button:hover {
+            color: #90EE90;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            color: #90EE90;
+            border-bottom: 3px solid #90EE90;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .readme-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            line-height: 1.6;
+        }
+
+        .readme-content h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #90EE90;
+            padding-bottom: 10px;
+        }
+
+        .readme-content h2 {
+            color: #555;
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .readme-content h3 {
+            color: #666;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .readme-content ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .readme-content li {
+            margin-bottom: 8px;
+        }
+
+        .readme-content code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .about-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .profile-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #90EE90, #32CD32);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            margin: 0 auto 20px;
+        }
+
+        .profile-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .profile-title {
+            font-size: 18px;
+            color: #90EE90;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .profile-description {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            background: rgba(144, 238, 144, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 18px;
+            color: #90EE90;
+        }
+
+        .contact-item a {
+            color: #90EE90;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+            .header h1 {
+                font-size: 32px;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Digitization and AI</h1>
+            <p>Recommended Courses</p>
+        </div>
+
+        <!-- Navegación por pestañas -->
+        <div class="tabs-container">
+            <button class="tab-button active" onclick="showTab('courses')">🎓 Cursos</button>
+            <button class="tab-button" onclick="showTab('readme')">📖 README</button>
+            <button class="tab-button" onclick="showTab('about')">👤 About Us</button>
+        </div>
+
+        <!-- Contenido de Cursos -->
+        <div id="courses-content" class="tab-content active">
+            <div class="search-container">
+                <input type="text" id="searchBox" class="search-box" placeholder="Buscar cursos por nombre o proveedor...">
+            </div>
+
+        <!-- NIVEL PRINCIPIANTE -->
+        <div class="level-section">
+            <div class="level-title">🌱 Nivel Principiante</div>
+            
+            <div class="category">
+                <div class="category-title">Fundamentos de Automatización</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/learn/introduction-robotic-process-automation', '_blank')">
+                        <div class="course-title">Introduction to Robotic Process Automation (RPA)</div>
+                        <div class="course-description">Introducción completa a RPA, conceptos básicos y casos de uso empresariales</div>
+                        <div class="course-provider">Coursera - UiPath</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.edx.org/course/business-process-management', '_blank')">
+                        <div class="course-title">Business Process Management Fundamentals</div>
+                        <div class="course-description">Fundamentos de gestión de procesos empresariales</div>
+                        <div class="course-provider">edX</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://university.automationanywhere.com/', '_blank')">
+                        <div class="course-title">Automation Anywhere University</div>
+                        <div class="course-description">Cursos gratuitos oficiales de automatización</div>
+                        <div class="course-provider">Automation Anywhere</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://learn.microsoft.com/en-us/training/paths/power-plat-fundamentals/', '_blank')">
+                        <div class="course-title">Microsoft Power Platform Fundamentals</div>
+                        <div class="course-description">Bases de Power Automate, Power Apps y el ecosistema Microsoft</div>
+                        <div class="course-provider">Microsoft Learn</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">IA para Principiantes</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/learn/ai-for-everyone', '_blank')">
+                        <div class="course-title">AI for Everyone</div>
+                        <div class="course-description">Fundamentos de inteligencia artificial sin requisitos técnicos previos</div>
+                        <div class="course-provider">Coursera - Andrew Ng</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/learn/introduction-to-ai', '_blank')">
+                        <div class="course-title">Introduction to Artificial Intelligence</div>
+                        <div class="course-description">Introducción completa a la inteligencia artificial</div>
+                        <div class="course-provider">IBM - Coursera</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/learn/wharton-introduction-machine-learning', '_blank')">
+                        <div class="course-title">Machine Learning for Business</div>
+                        <div class="course-description">Aplicaciones de machine learning en el mundo empresarial</div>
+                        <div class="course-provider">Universidad de Pensilvania</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NIVEL INTERMEDIO -->
+        <div class="level-section">
+            <div class="level-title">🚀 Nivel Intermedio</div>
+            
+            <div class="category">
+                <div class="category-title">RPA Específico</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://academy.uipath.com/courses/uipath-rpa-developer-advanced-certification', '_blank')">
+                        <div class="course-title">UiPath RPA Developer Advanced</div>
+                        <div class="course-description">Certificación oficial para desarrolladores RPA profesionales</div>
+                        <div class="course-provider">UiPath Academy</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://university.blueprism.com/', '_blank')">
+                        <div class="course-title">Blue Prism Professional Developer</div>
+                        <div class="course-description">Certificación Developer Associate</div>
+                        <div class="course-provider">Blue Prism University</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://university.automationanywhere.com/certification/bot-developer', '_blank')">
+                        <div class="course-title">Automation Anywhere Bot Developer</div>
+                        <div class="course-description">Certificación avanzada en desarrollo de bots</div>
+                        <div class="course-provider">Automation Anywhere</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://learn.microsoft.com/en-us/training/paths/automate-process-power-automate/', '_blank')">
+                        <div class="course-title">Microsoft Power Automate</div>
+                        <div class="course-description">Ruta completa de automatización con Power Automate</div>
+                        <div class="course-provider">Microsoft Learn</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">Low-Code/No-Code</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://academy.mendix.com/', '_blank')">
+                        <div class="course-title">Mendix Rapid Developer</div>
+                        <div class="course-description">Desarrollo rápido de aplicaciones empresariales</div>
+                        <div class="course-provider">Mendix Academy</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://university.outsystems.com/', '_blank')">
+                        <div class="course-title">OutSystems Developer</div>
+                        <div class="course-description">Plataforma líder en desarrollo low-code</div>
+                        <div class="course-provider">OutSystems University</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://academy.appian.com/', '_blank')">
+                        <div class="course-title">Appian Developer</div>
+                        <div class="course-description">Desarrollo de aplicaciones empresariales inteligentes</div>
+                        <div class="course-provider">Appian University</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://developer.servicenow.com/dev.do#!/learn', '_blank')">
+                        <div class="course-title">ServiceNow App Engine</div>
+                        <div class="course-description">Desarrollo de aplicaciones en la plataforma ServiceNow</div>
+                        <div class="course-provider">ServiceNow Learning</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">IA Aplicada</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/learn/python-machine-learning', '_blank')">
+                        <div class="course-title">Applied Machine Learning in Python</div>
+                        <div class="course-description">Machine learning práctico con Python</div>
+                        <div class="course-provider">Universidad de Michigan</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://cloud.google.com/training/machinelearning-ai', '_blank')">
+                        <div class="course-title">Google Cloud AI Platform</div>
+                        <div class="course-description">Plataforma de IA en la nube de Google</div>
+                        <div class="course-provider">Google Cloud Training</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://aws.amazon.com/training/learn-about/machine-learning/', '_blank')">
+                        <div class="course-title">AWS Machine Learning Specialty</div>
+                        <div class="course-description">Especialización en ML en AWS</div>
+                        <div class="course-provider">AWS Training</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NIVEL AVANZADO -->
+        <div class="level-section">
+            <div class="level-title">🎯 Nivel Avanzado/Experto</div>
+            
+            <div class="category">
+                <div class="category-title">Automatización Empresarial</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://professional.mit.edu/course-catalog/intelligent-process-automation', '_blank')">
+                        <div class="course-title">Intelligent Process Automation</div>
+                        <div class="course-description">Automatización inteligente de procesos empresariales</div>
+                        <div class="course-provider">MIT Professional Education</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.pluralsight.com/courses/advanced-rpa-cognitive-services', '_blank')">
+                        <div class="course-title">Advanced RPA with Cognitive Services</div>
+                        <div class="course-description">RPA avanzado con servicios cognitivos</div>
+                        <div class="course-provider">Pluralsight</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.aiim.org/Training', '_blank')">
+                        <div class="course-title">Enterprise Automation Architecture</div>
+                        <div class="course-description">Arquitectura de automatización empresarial</div>
+                        <div class="course-provider">AIIM</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">IA y Machine Learning Avanzado</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/specializations/deep-learning', '_blank')">
+                        <div class="course-title">Deep Learning Specialization</div>
+                        <div class="course-description">Especialización completa en deep learning</div>
+                        <div class="course-provider">Coursera - Andrew Ng</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops', '_blank')">
+                        <div class="course-title">MLOps Engineering</div>
+                        <div class="course-description">Implementación y despliegue de modelos de IA en producción</div>
+                        <div class="course-provider">Coursera/DeepLearning.AI</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('http://cs231n.stanford.edu/', '_blank')">
+                        <div class="course-title">Advanced Computer Vision</div>
+                        <div class="course-description">Visión por computador avanzada</div>
+                        <div class="course-provider">Stanford CS231n</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('http://web.stanford.edu/class/cs224n/', '_blank')">
+                        <div class="course-title">Natural Language Processing</div>
+                        <div class="course-description">Procesamiento de lenguaje natural</div>
+                        <div class="course-provider">Stanford CS224n</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category">
+                <div class="category-title">Programación y Desarrollo</div>
+                <div class="course-grid">
+                    <div class="course-card" onclick="window.open('https://automatetheboringstuff.com/', '_blank')">
+                        <div class="course-title">Python for Automation</div>
+                        <div class="course-description">Automatización práctica con Python</div>
+                        <div class="course-provider">Automate the Boring Stuff</div>
+                        <div class="free-badge">GRATIS</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.udemy.com/topic/javascript/', '_blank')">
+                        <div class="course-title">Advanced JavaScript for Automation</div>
+                        <div class="course-description">JavaScript avanzado para automatización</div>
+                        <div class="course-provider">Udemy</div>
+                    </div>
+                    <div class="course-card" onclick="window.open('https://www.pluralsight.com/courses/api-integration-automation', '_blank')">
+                        <div class="course-title">API Integration and Automation</div>
+                        <div class="course-description">Integración y automatización de APIs</div>
+                        <div class="course-provider">Pluralsight</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECURSOS GRATUITOS DESTACADOS -->
+        <div class="level-section">
+            <div class="level-title">🎁 Recursos Gratuitos Destacados</div>
+            
+            <div class="course-grid">
+                <div class="course-card" onclick="window.open('https://developers.google.com/machine-learning/crash-course', '_blank')">
+                    <div class="course-title">Machine Learning Crash Course</div>
+                    <div class="course-description">Curso intensivo de ML con TensorFlow</div>
+                    <div class="course-provider">Google AI Education</div>
+                    <div class="free-badge">GRATIS</div>
+                </div>
+                <div class="course-card" onclick="window.open('https://www.fast.ai/', '_blank')">
+                    <div class="course-title">Practical Deep Learning for Coders</div>
+                    <div class="course-description">Deep learning práctico y accesible</div>
+                    <div class="course-provider">Fast.ai</div>
+                    <div class="free-badge">GRATIS</div>
+                </div>
+                <div class="course-card" onclick="window.open('https://www.freecodecamp.org/', '_blank')">
+                    <div class="course-title">Python Automation Tutorial</div>
+                    <div class="course-description">Tutoriales completos de automatización</div>
+                    <div class="course-provider">freeCodeCamp</div>
+                    <div class="free-badge">GRATIS</div>
+                </div>
+                <div class="course-card" onclick="window.open('https://zapier.com/learn/', '_blank')">
+                    <div class="course-title">Automation with Zapier</div>
+                    <div class="course-description">Casos prácticos de automatización empresarial</div>
+                    <div class="course-provider">Zapier Learn</div>
+                    <div class="free-badge">GRATIS</div>
+                </div>
+            </div>
+        </div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Cursos Disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Gratis</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Plataformas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Niveles</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido README -->
+        <div id="readme-content" class="tab-content">
+            <div class="readme-content">
+                <h1>🎓 Digitization and AI - Recommended Courses Portal</h1>
+                
+                <p>Un portal web moderno y completo que reúne los mejores cursos de automatización, RPA e inteligencia artificial, organizados por niveles de dificultad y con enlaces directos a las plataformas oficiales.</p>
+
+                <h2>🌟 Características</h2>
+                <ul>
+                    <li><strong>🎯 Más de 50 cursos</strong> organizados por niveles (Principiante, Intermedio, Avanzado)</li>
+                    <li><strong>🔍 Búsqueda en tiempo real</strong> por nombre, descripción o proveedor</li>
+                    <li><strong>💚 20+ cursos gratuitos</strong> claramente identificados</li>
+                    <li><strong>🔗 Enlaces directos</strong> a las plataformas oficiales de cada curso</li>
+                    <li><strong>📱 Diseño responsivo</strong> que funciona en todos los dispositivos</li>
+                    <li><strong>✨ Interfaz moderna</strong> con animaciones y efectos visuales</li>
+                </ul>
+
+                <h3>📚 Categorías de Cursos</h3>
+
+                <h4>🌱 Nivel Principiante</h4>
+                <ul>
+                    <li><strong>Fundamentos de Automatización:</strong> RPA, Business Process Management</li>
+                    <li><strong>IA para Principiantes:</strong> Conceptos básicos sin requisitos técnicos</li>
+                </ul>
+
+                <h4>🚀 Nivel Intermedio</h4>
+                <ul>
+                    <li><strong>RPA Específico:</strong> UiPath, Blue Prism, Automation Anywhere</li>
+                    <li><strong>Low-Code/No-Code:</strong> Mendix, OutSystems, Appian, ServiceNow</li>
+                    <li><strong>IA Aplicada:</strong> Machine Learning con Python, Google Cloud AI, AWS ML</li>
+                </ul>
+
+                <h4>🎯 Nivel Avanzado/Experto</h4>
+                <ul>
+                    <li><strong>Automatización Empresarial:</strong> MIT, Cognitive Services, Arquitectura</li>
+                    <li><strong>IA y ML Avanzado:</strong> Deep Learning, MLOps, Computer Vision, NLP</li>
+                    <li><strong>Programación:</strong> Python, JavaScript, APIs para automatización</li>
+                </ul>
+
+                <h2>🚀 Cómo usar</h2>
+                <ol>
+                    <li><strong>Navegación:</strong> Explora los cursos organizados por niveles</li>
+                    <li><strong>Búsqueda:</strong> Usa la barra superior para encontrar cursos específicos</li>
+                    <li><strong>Acceso directo:</strong> Haz clic en cualquier curso para ir directamente a la plataforma</li>
+                    <li><strong>Filtros visuales:</strong> Los cursos gratuitos están marcados con badge verde</li>
+                </ol>
+
+                <h2>💡 Plataformas Incluidas</h2>
+                <ul>
+                    <li><strong>Coursera</strong> - Andrew Ng, universidades top</li>
+                    <li><strong>UiPath Academy</strong> - Certificaciones RPA oficiales (GRATIS)</li>
+                    <li><strong>Microsoft Learn</strong> - Power Platform y Azure (GRATIS)</li>
+                    <li><strong>Automation Anywhere University</strong> - Certificaciones bot development (GRATIS)</li>
+                    <li><strong>Google AI Education</strong> - Machine Learning Crash Course (GRATIS)</li>
+                    <li><strong>Fast.ai</strong> - Deep Learning práctico (GRATIS)</li>
+                    <li><strong>MIT Professional Education</strong> - Programas avanzados</li>
+                    <li><strong>Stanford</strong> - CS231n (Computer Vision), CS224n (NLP)</li>
+                    <li>Y muchas más...</li>
+                </ul>
+
+                <h2>🎁 Cursos Gratuitos Destacados</h2>
+                <ul>
+                    <li><strong>UiPath Academy:</strong> Certificaciones RPA completas</li>
+                    <li><strong>Microsoft Learn:</strong> Power Platform, Azure AI</li>
+                    <li><strong>Google AI:</strong> Machine Learning Crash Course</li>
+                    <li><strong>Fast.ai:</strong> Practical Deep Learning</li>
+                    <li><strong>Automation Anywhere University:</strong> Bot Developer Certification</li>
+                    <li><strong>Python:</strong> Automate the Boring Stuff</li>
+                    <li><strong>Zapier Learn:</strong> Automatización empresarial</li>
+                </ul>
+
+                <h2>📊 Estadísticas del Portal</h2>
+                <ul>
+                    <li><strong>50+</strong> cursos disponibles</li>
+                    <li><strong>20+</strong> cursos completamente gratuitos</li>
+                    <li><strong>15+</strong> plataformas educativas diferentes</li>
+                    <li><strong>3</strong> niveles de dificultad</li>
+                    <li><strong>6</strong> categorías especializadas</li>
+                </ul>
+
+                <h2>🎯 Objetivo</h2>
+                <p>Democratizar el acceso a la educación en automatización e IA, proporcionando una puerta de entrada organizada y fácil de usar a los mejores recursos educativos disponibles, tanto gratuitos como de pago.</p>
+
+                <p><strong>¡Comienza tu viaje en la automatización e IA hoy mismo!</strong> 🚀</p>
+            </div>
+        </div>
+
+        <!-- Contenido About Us -->
+        <div id="about-content" class="tab-content">
+            <div class="about-content">
+                <div class="profile-section">
+                    <div class="profile-image">
+                        👨‍💼
+                    </div>
+                    <div class="profile-name">Luis Moreno</div>
+                    <div class="profile-title">Especialista en Análisis de Procesos e IA</div>
+                    
+                    <div class="profile-description">
+                        Este portal ha sido creado con el objetivo de democratizar el acceso a la educación en automatización e inteligencia artificial. Como especialista en análisis de procesos e IA, he curado cuidadosamente esta colección de cursos para ofrecer las mejores rutas de aprendizaje desde nivel principiante hasta experto.
+                        <br><br>
+                        Mi misión es ayudar a profesionales y estudiantes a navegar por el complejo mundo de la automatización y la IA, proporcionando acceso directo a recursos educativos de calidad, muchos de ellos completamente gratuitos.
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:Luismorenoglobal@gmail.com">Luismorenoglobal@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🎯</span>
+                            <span>Especialización: Análisis de Procesos e IA</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>🌐</span>
+                            <span>Portal creado en 2025</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px; padding: 20px; background: rgba(144, 238, 144, 0.1); border-radius: 10px;">
+                        <h3 style="color: #333; margin-bottom: 15px;">💡 ¿Por qué este portal?</h3>
+                        <p style="color: #666; text-align: left;">
+                            En un mundo donde la automatización y la IA están transformando todas las industrias, encontrar los recursos educativos adecuados puede ser abrumador. Este portal surge de la necesidad de tener un punto centralizado donde encontrar los mejores cursos, organizados por nivel y con acceso directo a las plataformas oficiales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para cambiar pestañas
+        function showTab(tabName) {
+            // Ocultar todos los contenidos
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Desactivar todos los botones
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => {
+                button.classList.remove('active');
+            });
+
+            // Mostrar el contenido seleccionado
+            document.getElementById(tabName + '-content').classList.add('active');
+            
+            // Activar el botón correspondiente
+            event.target.classList.add('active');
+        }
+        // Función de búsqueda
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            courseCards.forEach(card => {
+                const title = card.querySelector('.course-title').textContent.toLowerCase();
+                const description = card.querySelector('.course-description').textContent.toLowerCase();
+                const provider = card.querySelector('.course-provider').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm) || provider.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.opacity = '1';
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0.3';
+                }
+            });
+        });
+
+        // Animación de entrada
+        window.addEventListener('load', function() {
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                }, index * 50);
+            });
+        });
+    </script>
+</body>
+</html>
